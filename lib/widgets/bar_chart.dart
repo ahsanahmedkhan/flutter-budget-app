@@ -7,6 +7,13 @@ class BarChart extends StatelessWidget {
   BarChart(this.expenses);
   @override
   Widget build(BuildContext context) {
+    double mostExpensive = 0;
+    expenses.forEach((double price){
+      if(price > mostExpensive){
+        mostExpensive = price;
+      }
+    });
+
     return Column(
       children: <Widget>[
         Text('Weekly Spending',
@@ -43,7 +50,7 @@ class BarChart extends StatelessWidget {
           Bar(
             label: 'Su',
             amountSpent: expenses[0],
-            mostExpensive: 200,
+            mostExpensive: mostExpensive,
           ),
         ],
        ),
@@ -58,10 +65,33 @@ class Bar extends StatelessWidget {
   final double amountSpent;
   final double mostExpensive;
 
+  final double _maxBarHeight = 150.0;
+
   Bar({this.label, this.amountSpent, this.mostExpensive});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final barHeight = amountSpent / mostExpensive * _maxBarHeight;
+    return Column(children: <Widget> [
+      Text('\$${amountSpent.toStringAsFixed(2)}',
+      style: TextStyle(fontWeight: FontWeight.w600,
+      ),
+     ),
+      SizedBox(height: 6.0),
+      Container(
+        height: barHeight,
+        width: 18.0,
+        decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(6.0),
+        ),
+      ),
+      SizedBox(height: 8.0),
+      Text(label,
+        style: TextStyle(fontWeight: FontWeight.w600,
+        ),
+      ),
+    ],
+   );
   }
 }
