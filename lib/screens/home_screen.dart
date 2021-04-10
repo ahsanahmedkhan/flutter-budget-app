@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: BarChart(weeklySpending),
                 );
               },
-                childCount: 1,
+                childCount: 6,
             ),
           ),
         ],
