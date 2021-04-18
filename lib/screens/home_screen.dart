@@ -13,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _buildCategory(Category category, double totalAmountSpent){
         return Container(
           margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          padding: EdgeInsets.all(20.0),
           height: 100.0,
           width: double.infinity,
           decoration: BoxDecoration(
@@ -44,7 +45,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                  ),
                 ],
-              )
+              ),
+              SizedBox(height: 10.0),
+              Stack(
+                children: <Widget>[
+                  Container(
+                    height: 20.0,
+                    decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  Container(
+                    height: 20.0,
+                    width: 50.0,
+                    decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         );

@@ -8,7 +8,7 @@ final List<double> weeklySpending = [
   rand.nextDouble() * 100,
   rand.nextDouble() * 100,
   rand.nextDouble() * 100,
-  rand.nextDouble() * 100,
+  rand.nextDouble() * 100, 
   rand.nextDouble() * 100,
   rand.nextDouble() * 100,
   rand.nextDouble() * 100,
