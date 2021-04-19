@@ -47,20 +47,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               SizedBox(height: 10.0),
-              Stack(
-                children: <Widget>[
-                  Container(
-                    height: 20.0,
-                    decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(15.0),
+              LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints){
+                  final double maxBarWidth = constraints.maxWidth;
+                 // final double percent = (category.maxAmount = totalAmountSpent) / category.maxAmount;
+                  //double barWidth = percent * maxBarWidth;
+                return Stack(
+                  children: <Widget>[
+                    Container(
+                      height: 20.0,
+                      decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(15.0),
+                      ),
                     ),
-                  ),
-                  Container(
-                    height: 20.0,
-                    width: 50.0,
-                    decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(15.0),
+                    Container(
+                      height: 20.0,
+                      width: 50.0,
+                      decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(15.0),
+                      ),
                     ),
-                  ),
-                ],
+
+                  ],
+                );
+               }, //Builder
               ),
             ],
           ),
