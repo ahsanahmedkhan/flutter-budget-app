@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_budget_app/models/expense_model.dart';
 import 'package:flutter_budget_app/models/category_model.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -15,6 +16,13 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
+    double totalAmountSpent = 0;
+    widget.category.expenses.forEach((Expense expense) {
+      totalAmountSpent += expense.cost;
+    });
+    final double amountleft = widget.category.maxAmount - totalAmountSpent;
+    final double percent = amountleft / widget.category.maxAmount;
+
     return Scaffold(
       appBar: AppBar(title: Text(widget.category.name),
         actions: <Widget> [
@@ -43,6 +51,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   )
                 ]
               ),
+              child: Center(child: Text('\$${amountleft.toStringAsFixed(2)} / \$${widget.category.maxAmount}',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+             ),
             )
           ],
         ),
