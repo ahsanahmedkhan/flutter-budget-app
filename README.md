@@ -1,6 +1,6 @@
 # flutter_budget_app
 
-A new Flutter application.
+Flutter Budget UI App
 
 ## Getting Started
 
